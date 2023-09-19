@@ -22,13 +22,16 @@ function Todo() {
         setTodos(updatedTodos);
     };
     return (
-        <div>
-            <h1>TODO LIST</h1>
+        <div className='card'>
+            <h1>TO DO LIST</h1>
             <input type="text" value={newTodo} onChange={(e) => setNewTodo(e.target.value)} />
-            <button onClick={handleAddTodo} style={{ margin: '1rem' }} disabled={disableAdd}>Add</button>
+            <button onClick={handleAddTodo} disabled={disableAdd}>Add</button>
             <ul>
                 {todos.map
-                    ((todo, index) => (<li key={index}>{todo}<Delete index={index} onDelete={handleDeleteTodo} /></li>))}
+                    ((todo, index) => (<li key={index}>
+                        <span>{todo}</span>
+                    <Delete index={index} onDelete={handleDeleteTodo} />
+                    </li>))}
             </ul>
         </div>
     );

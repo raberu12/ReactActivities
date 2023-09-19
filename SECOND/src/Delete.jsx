@@ -5,7 +5,7 @@ const Delete = ({ index, onDelete }) => {
 
     return (
         <button onClick={handleDelete}>
-            DELETE
+            Delete
         </button>
     );
 };
