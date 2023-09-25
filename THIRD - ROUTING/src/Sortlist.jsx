@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import Display from "./Displaysortlist.jsx";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function Sortlist() {
@@ -47,13 +45,16 @@ function Sortlist() {
 
   return (
     <>
-      <p>Input Student ID #:</p>
+      <h1>Input Student ID #:</h1>
       <input
         value={idInput}
+        type="text"
         onChange={handleInputChange}
         style={borderStyle}
       ></input>
+      <div className="card">
       <Display students={filteredStudents} />
+      </div>
     </>
   );
 }

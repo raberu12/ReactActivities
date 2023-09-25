@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css'
 
 function Display({students}){
-    return(
+    return( 
         <>
         {students.map((x)=>(
             <p key={x.idNum}>
