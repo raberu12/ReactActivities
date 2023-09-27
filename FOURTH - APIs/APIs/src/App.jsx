@@ -40,8 +40,8 @@ function App() {
       
       {filteredStudents.length > 0 ? (
         <div>
-          <h2>Filtered Students</h2>
-          <ul>
+          <h2>APIs Filter System</h2>
+          <ul style={{listStyle: "none"}}>
             {filteredStudents.map((student) => (
               <li key={student.id}>
                 ID: {student.id} | Name: {student.name} | Age: {student.age} | Course: {student.course}
