@@ -43,7 +43,7 @@ function App() {
         <input id='age' type="text" />
         <label htmlFor="course"> Course </label>
         <input id='course' type="text" />
-        <input type="submit" style={{marginLeft: 10, padding: 300}} />
+        <input type="submit" style={{marginLeft: 10, width: 80}} />
       </form>
     </div>
     </>
