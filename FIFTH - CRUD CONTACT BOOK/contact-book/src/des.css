@@ -1,0 +1,73 @@
+/* 
+COLOR PALETTE
+#352F44 -dark purple
+#5C5470 -purple
+#B9B4C7 -light purple
+#FAF0E6 -lightest
+ */
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+.main {
+    display: flex;
+    flex-direction: column;
+
+}
+
+body {
+    background: linear-gradient(to top, #352F44, #FAF0E6);
+    font-family: Raleway;
+}
+
+.addstud {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: Raleway;
+}
+
+ul {
+    margin: 0;
+    padding: 10px;
+    font-size: 2ic;
+}
+
+.input {
+    margin-left: 20px;
+}
+
+input {
+    background-color: #B9B4C7;
+    border-radius: 5px;
+    font-family: Raleway;
+}
+
+.button {
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.display {
+    margin-bottom: 20px;
+    background-color: #b9b4c7a9;
+    border-radius: 5px;
+    border: solid #5C5470;
+    font-family: Raleway;
+}
+
+h1 {
+    font-family: Pixelify Sans;
+    color: #B9B4C7;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+.searchstud{
+    margin-bottom: 20px;
+    background-color: #b9b4c7a9;
+    border-radius: 5px;
+    border: solid #5C5470;
+    font-family: Raleway;
+    padding: 2ic;
+}

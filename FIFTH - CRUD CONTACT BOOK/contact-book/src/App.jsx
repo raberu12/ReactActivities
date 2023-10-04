@@ -145,7 +145,7 @@ function App() {
               {!editStudent && (
                 <>
                   <button onClick={() => setEditStudent(search)}>Edit</button>
-                  <button onClick={handleDeleteStudent}>Delete</button>
+                  <button onClick={handleDeleteStudent} style={{marginLeft: 10}}>Delete</button>
                 </>
               )}
             </div>
