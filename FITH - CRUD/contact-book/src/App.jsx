@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import reactlogo from './assets/react.svg';
 import vitelogo from '/vite.svg';
 import './app.css';
+import './des.css';
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -83,27 +84,37 @@ function App() {
 
 
   return (
-    <>
-      <div>
-        <h1>Contact Book</h1>
+      <div className='main'>
+        <h1>CONTACT BOOK</h1>
+        <div className='display'>
         <ul style={{ listStyle: 'none' }}>
           {students.map((student) => (
             <li key={student.id}>{student.id}</li>
           ))}
         </ul>
+        </div>
         <div className="addstud">
-          <label htmlFor="id">Contact Number </label>
-          <input id="id" type="text" value={newStudent.id || ''} onChange={(e) => setNewStudent({ ...newStudent, id: e.target.value })} />
+          <div className="label">
+            <label htmlFor="id">Contact Number </label>
+            <br />
+            <label htmlFor="name"> Name </label>
+            <br />
+            <label htmlFor="age"> Age </label>
+            <br />
+            <label htmlFor="course"> Course </label>
+          </div>
 
-          <label htmlFor="name"> Name </label>
-          <input id="name" type="text" value={newStudent.name || ''} onChange={(e) => setNewStudent({ ...newStudent, name: e.target.value })} />
-
-          <label htmlFor="age"> Age </label>
-          <input id="age" type="text" value={newStudent.age || ''} onChange={(e) => setNewStudent({ ...newStudent, age: e.target.value })} />
-
-          <label htmlFor="course"> Course </label>
-          <input id="course" type="text" value={newStudent.course || ''} onChange={(e) => setNewStudent({ ...newStudent, course: e.target.value })} />
-
+          <div className='input'>
+            <input id="id" type="text" value={newStudent.id || ''} onChange={(e) => setNewStudent({ ...newStudent, id: e.target.value })} />
+            <br />
+            <input id="name" type="text" value={newStudent.name || ''} onChange={(e) => setNewStudent({ ...newStudent, name: e.target.value })} />
+            <br />
+            <input id="age" type="text" value={newStudent.age || ''} onChange={(e) => setNewStudent({ ...newStudent, age: e.target.value })} />
+            <br />
+            <input id="course" type="text" value={newStudent.course || ''} onChange={(e) => setNewStudent({ ...newStudent, course: e.target.value })} />
+          </div>
+        </div>
+        <div className='button'>
           {editStudent ? (
             <><button type="submit" style={{ marginLeft: 10 }} onClick={handleUpdateStudent}>
               Update
@@ -116,8 +127,8 @@ function App() {
               Add
             </button>
           )}
-
         </div>
+
         {!formValid && <p>PLEASE FILL UP ALL THE FIELDS.</p>}
         <div className="searchstud">
           <label htmlFor="id">ID SEARCH</label>
@@ -143,7 +154,6 @@ function App() {
           )}
         </div>
       </div>
-    </>
   );
 }
 
