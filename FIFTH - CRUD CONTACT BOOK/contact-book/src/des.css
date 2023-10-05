@@ -1,21 +1,22 @@
 /* 
 COLOR PALETTE
-#352F44 -dark purple
-#5C5470 -purple
-#B9B4C7 -light purple
-#FAF0E6 -lightest
+#F9F5F6 - light
+#F8E8EE
+#FDCEDF
+#F2BED1 - dark
  */
-@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@700&display=swap');
 
 .main {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    color: rgb(53, 8, 49);
 
 }
 
 body {
-    background: linear-gradient(to top, #352F44, #FAF0E6);
+    background: radial-gradient(circle at center, #F9F5F6, #F2BED1);
     font-family: Raleway;
 }
 
@@ -37,10 +38,18 @@ ul {
 }
 
 input {
-    background-color: #B9B4C7;
+    background-color: #F8E8EE;
     border-radius: 5px;
     font-family: Raleway;
+    border: solid #F2BED1;
+    margin: 2.5px;
+    color: black;
 }
+
+input:hover {
+    border-color: white;
+}
+
 
 .button {
     justify-content: center;
@@ -51,23 +60,41 @@ input {
 
 .display {
     margin-bottom: 20px;
-    background-color: #b9b4c7a9;
+    background-color: #fdcedf54;
     border-radius: 5px;
-    border: solid #5C5470;
+    border: solid #F2BED1;
     font-family: Raleway;
 }
 
 h1 {
     font-family: Pixelify Sans;
-    color: #B9B4C7;
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+    font-size: 100px;
+    color: #F2BED1 ;
+    text-shadow: -1px -1px 0 rgb(53, 8, 49), 1px -1px 0 rgb(53, 8, 49), -1px 1px 0 rgb(53, 8, 49), 1px 1px 0 rgb(53, 8, 49);    
 }
 
-.searchstud{
+.searchstud {
     margin-bottom: 20px;
-    background-color: #b9b4c7a9;
+    background-color: #fdcedf54;
     border-radius: 5px;
-    border: solid #5C5470;
+    border: solid #F2BED1;
     font-family: Raleway;
     padding: 2ic;
+}
+
+.submain {
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.submain2 {
+    width: 350px;
+    margin-left: 50px;
+}
+
+.label {
+    font-weight: bolder;
+    font-size: larger;
 }
