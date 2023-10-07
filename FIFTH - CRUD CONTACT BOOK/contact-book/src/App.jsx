@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import reactlogo from "./assets/react.svg";
-import vitelogo from "/vite.svg";
 import "./app.css";
 import "./des.css";
 
