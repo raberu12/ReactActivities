@@ -22,7 +22,7 @@ body {
 
 .addstud {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     font-family: Raleway;
 }
@@ -42,8 +42,10 @@ input {
     border-radius: 5px;
     font-family: Raleway;
     border: solid #F2BED1;
-    margin: 2.5px;
+    margin: 3.5px;
     color: black;
+    padding:5px;
+    text-align: center;
 }
 
 input:hover {
@@ -51,11 +53,15 @@ input:hover {
 }
 
 
-.button {
+button {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+button:disabled:hover{
+    cursor: not-allowed;
 }
 
 .display {

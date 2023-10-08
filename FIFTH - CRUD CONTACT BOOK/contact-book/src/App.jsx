@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import "./app.css";
 import "./des.css";
+import StudentList from "./StudentList";
+import AddStudentForm from "./AddStudentForm";
+import SearchStudentForm from "./SearchStudentForm";
+import StudentDetails from "./StudentDetails";
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -15,7 +19,8 @@ function App() {
       newStudent.id &&
       newStudent.name &&
       newStudent.age &&
-      newStudent.course
+      newStudent.course &&
+      !students.some((student) => student.id === newStudent.id)
     ) {
       const updatedStudents = [...students, newStudent];
       setStudents(updatedStudents);
@@ -54,15 +59,11 @@ function App() {
 
   const handleSearch = () => {
     const result = students.find((student) => student.id == searchId);
-    setSearch(result || null);
+    setSearch(result);
   };
 
-  const handleDeleteStudent = () => {
-    console.log(editStudent);
-    const updatedStudents = students.filter(
-      (student) => student.id !== search.id
-    );
-    console.log(updatedStudents);
+  const handleDeleteStudent = (student) => {
+    const updatedStudents = students.filter((s) => s.id !== student.id);
     setStudents(updatedStudents);
     setEditStudent(null);
     setSearch(null);
@@ -96,129 +97,32 @@ function App() {
       <h1>CONTACT BOOK</h1>
       <div className="main">
         <div className="submain">
-          <div className="display">
-            <ul style={{ listStyle: "none" }}>
-              {students.map((student) => (
-                <li key={student.id}>{student.id}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="addstud">
-            <div className="label">
-              <label htmlFor="id">Contact Number </label>
-              <br />
-              <label htmlFor="name"> Name </label>
-              <br />
-              <label htmlFor="age"> Age </label>
-              <br />
-              <label htmlFor="course"> Course </label>
-            </div>
-
-            <div className="input">
-              <input
-                id="id"
-                type="text"
-                value={newStudent.id || ""}
-                onChange={(e) =>
-                  setNewStudent({ ...newStudent, id: e.target.value })
-                }
-              />
-              <br />
-              <input
-                id="name"
-                type="text"
-                value={newStudent.name || ""}
-                onChange={(e) =>
-                  setNewStudent({ ...newStudent, name: e.target.value })
-                }
-              />
-              <br />
-              <input
-                id="age"
-                type="text"
-                value={newStudent.age || ""}
-                onChange={(e) =>
-                  setNewStudent({ ...newStudent, age: e.target.value })
-                }
-              />
-              <br />
-              <input
-                id="course"
-                type="text"
-                value={newStudent.course || ""}
-                onChange={(e) =>
-                  setNewStudent({ ...newStudent, course: e.target.value })
-                }
-              />
-            </div>
-          </div>
-          <div className="button">
-            {editStudent ? (
-              <>
-                <button
-                  type="submit"
-                  style={{ marginLeft: 10 }}
-                  onClick={handleUpdateStudent}
-                >
-                  Update
-                </button>
-                <button
-                  type="button"
-                  style={{ marginLeft: 10 }}
-                  onClick={handleCancelEdit}
-                >
-                  Cancel
-                </button>
-              </>
-            ) : (
-              <button
-                type="submit"
-                style={{ marginLeft: 10, width: 80 }}
-                onClick={handleAddStudent}
-              >
-                Add
-              </button>
-            )}
-          </div>
+          <StudentList students={students} />
+          <AddStudentForm
+            students={students}
+            newStudent={newStudent}
+            setNewStudent={setNewStudent}
+            formValid={formValid}
+            setFormValid={setFormValid}
+            handleAddStudent={handleAddStudent}
+            handleUpdateStudent={handleUpdateStudent}
+            handleCancelEdit={handleCancelEdit}
+            editStudent={editStudent}
+          />
         </div>
         <div className="submain2">
-          {!formValid && <p>PLEASE FILL UP ALL THE FIELDS.</p>}
-          <div className="searchstud">
-            <label htmlFor="id">ID SEARCH</label>
-            <br />
-            <input
-              id="search"
-              type="text"
-              value={searchId}
-              onChange={(e) => setSearchId(e.target.value)}
-              placeholder="Enter ID"
+          <SearchStudentForm
+            searchId={searchId}
+            setSearchId={setSearchId}
+            handleSearch={handleSearch}
+          />
+          {search && (
+            <StudentDetails
+              student={search}
+              setEditStudent={setEditStudent}
+              handleDeleteStudent={handleDeleteStudent}
             />
-            <button onClick={handleSearch} style={{ marginLeft: 10 }}>
-              Search
-            </button>
-            {search ? (
-              <div className="displaystud">
-                <h3>Contact Details</h3>
-                <p>ID: {search.id}</p>
-                <p>Name: {search.name}</p>
-                <p>Age: {search.age}</p>
-                <p>Course: {search.course}</p>
-                {!editStudent && (
-                  <>
-                    <button onClick={() => setEditStudent(search)}>Edit</button>
-                    <button
-                      onClick={handleDeleteStudent}
-                      style={{ marginLeft: 10 }}
-                    >
-                      Delete
-                    </button>
-                  </>
-                )}
-              </div>
-            ) : (
-              <p>No student with that ID has been found!</p>
-            )}
-          </div>
+          )}
         </div>
       </div>
     </div>

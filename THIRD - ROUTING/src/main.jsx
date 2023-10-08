@@ -20,5 +20,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/todo" element={<Todo />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
