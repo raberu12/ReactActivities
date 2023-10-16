@@ -1,0 +1,39 @@
+/* Navbar.css */
+.navbar {
+    display: flex;
+    /* Make the navigation items appear in a row */
+    justify-content: flex-end;
+    /* Right-align the items horizontally */
+    background-color: #333;
+    /* Set the background color */
+    color: white;
+    /* Set text color */
+    padding: 10px;
+    /* Add some padding to the navbar */
+    position: fixed;
+    /* Fix the navbar at the top of the viewport */
+    top: 0;
+    /* Position it at the top of the viewport */
+    left: 0;
+    /* Position it at the left of the viewport */
+    width: 100%;
+    /* Make it span the full width of the viewport */
+    z-index: 999;
+    /* Set a high z-index to ensure it's above other content */
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin-right: 50px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
