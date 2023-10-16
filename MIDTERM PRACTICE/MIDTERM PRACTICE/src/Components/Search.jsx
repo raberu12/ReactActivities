@@ -1,8 +1,9 @@
-import { useState } from "react";
-import "../Styles/search.css"
+import { useState, useRef } from "react";
+import "../Styles/search.css";
 function Search() {
   const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
+  const inputRef = useRef(); //Create a ref for the input field
 
   const searchMovies = async () => {
     try {
@@ -18,6 +19,12 @@ function Search() {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      searchMovies();
+    }
+  };
+
   return (
     <div>
       <div>
@@ -29,6 +36,8 @@ function Search() {
           placeholder="Search..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
+          ref={inputRef}
         />
         <button onClick={searchMovies}>Search</button>
         <div className="movie-container">
